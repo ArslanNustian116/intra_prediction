@@ -1,0 +1,10 @@
+# compile verilog/system verilog design source files
+sv xil_defaultlib  \
+"../../../../intra_prediction.srcs/sources_1/new/reference_sample_generation.sv" \
+"../../../../intra_prediction.srcs/sim_1/new/tb_reference_samples.sv" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort
