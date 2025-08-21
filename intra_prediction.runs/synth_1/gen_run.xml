@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GenRun Id="synth_1" LaunchPart="xc7vx485tffg1157-1" LaunchTime="1755754336">
   <File Type="PA-TCL" Name="planar_prediction.tcl"/>
-  <File Type="RDS-PROPCONSTRS" Name="planar_prediction_drc_synth.rpt"/>
   <File Type="REPORTS-TCL" Name="planar_prediction_reports.tcl"/>
   <File Type="RDS-RDS" Name="planar_prediction.vds"/>
   <File Type="RDS-UTIL" Name="planar_prediction_utilization_synth.rpt"/>
   <File Type="RDS-UTIL-PB" Name="planar_prediction_utilization_synth.pb"/>
   <File Type="RDS-DCP" Name="planar_prediction.dcp"/>
-  <File Type="VDS-TIMINGSUMMARY" Name="planar_prediction_timing_summary_synth.rpt"/>
-  <File Type="VDS-TIMING-PB" Name="planar_prediction_timing_summary_synth.pb"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
     <Filter Type="Srcs"/>
     <File Path="$PSRCDIR/sources_1/new/planar_prediction.sv">
