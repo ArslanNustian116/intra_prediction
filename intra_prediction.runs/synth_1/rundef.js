@@ -23,7 +23,7 @@ eval( EAInclude(ISEJScriptLib) );
 
 
 ISEStep( "vivado",
-         "-log reference_sample_arrays.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source reference_sample_arrays.tcl" );
+         "-log planar_prediction.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source planar_prediction.tcl" );
 
 
 

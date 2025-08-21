@@ -76,7 +76,6 @@ for (y=0;y<8; y= y+1)
 sum_y=sum_y+p[0][y];
 end
 
-assign dc_out=sum_x+sum_y + N ;
 
 logic [7:0] P[0:7][7:0];
 

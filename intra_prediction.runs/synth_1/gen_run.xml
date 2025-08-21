@@ -1,18 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7vx485tffg1157-1" LaunchTime="1755686333">
-  <File Type="PA-TCL" Name="reference_sample_arrays.tcl"/>
-  <File Type="RDS-PROPCONSTRS" Name="reference_sample_arrays_drc_synth.rpt"/>
-  <File Type="REPORTS-TCL" Name="reference_sample_arrays_reports.tcl"/>
-  <File Type="RDS-RDS" Name="reference_sample_arrays.vds"/>
-  <File Type="RDS-UTIL" Name="reference_sample_arrays_utilization_synth.rpt"/>
-  <File Type="RDS-UTIL-PB" Name="reference_sample_arrays_utilization_synth.pb"/>
-  <File Type="RDS-DCP" Name="reference_sample_arrays.dcp"/>
-  <File Type="VDS-TIMINGSUMMARY" Name="reference_sample_arrays_timing_summary_synth.rpt"/>
-  <File Type="VDS-TIMING-PB" Name="reference_sample_arrays_timing_summary_synth.pb"/>
+<GenRun Id="synth_1" LaunchPart="xc7vx485tffg1157-1" LaunchTime="1755754336">
+  <File Type="PA-TCL" Name="planar_prediction.tcl"/>
+  <File Type="RDS-PROPCONSTRS" Name="planar_prediction_drc_synth.rpt"/>
+  <File Type="REPORTS-TCL" Name="planar_prediction_reports.tcl"/>
+  <File Type="RDS-RDS" Name="planar_prediction.vds"/>
+  <File Type="RDS-UTIL" Name="planar_prediction_utilization_synth.rpt"/>
+  <File Type="RDS-UTIL-PB" Name="planar_prediction_utilization_synth.pb"/>
+  <File Type="RDS-DCP" Name="planar_prediction.dcp"/>
+  <File Type="VDS-TIMINGSUMMARY" Name="planar_prediction_timing_summary_synth.rpt"/>
+  <File Type="VDS-TIMING-PB" Name="planar_prediction_timing_summary_synth.pb"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
     <Filter Type="Srcs"/>
+    <File Path="$PSRCDIR/sources_1/new/planar_prediction.sv">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/dc_prediction.sv">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
     <File Path="$PSRCDIR/sources_1/new/reference_sample_arrays.sv">
       <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -27,14 +43,6 @@
       </FileInfo>
     </File>
     <File Path="$PSRCDIR/sources_1/new/angular_prediction.sv">
-      <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PSRCDIR/sources_1/new/dc_prediction.sv">
       <FileInfo>
         <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
@@ -58,17 +66,9 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PSRCDIR/sources_1/new/planar_prediction.sv">
-      <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
     <Config>
       <Option Name="DesignMode" Val="RTL"/>
-      <Option Name="TopModule" Val="reference_sample_arrays"/>
+      <Option Name="TopModule" Val="planar_prediction"/>
     </Config>
   </FileSet>
   <FileSet Name="constrs_in" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1">
@@ -78,9 +78,7 @@
     </Config>
   </FileSet>
   <Strategy Version="1" Minor="2">
-    <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2018">
-      <Desc>Vivado Synthesis Defaults</Desc>
-    </StratHandle>
+    <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2018"/>
     <Step Id="synth_design"/>
   </Strategy>
 </GenRun>

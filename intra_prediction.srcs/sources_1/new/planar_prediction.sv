@@ -47,8 +47,8 @@ integer j;
 
 always_ff@(posedge clk)
 if(rst)
-for (i=0; i<31; i = i+1)begin     
-    for (j=0; j<31; j = j+1)begin
+for (i=0; i<32; i = i+1)begin     
+    for (j=0; j<32; j = j+1)begin
     p[i][j]<=0;
     end
 end
@@ -60,7 +60,9 @@ else
 
 // Planar prediction computation
     logic [15:0] sum;
+    /*
     always_comb begin
+    sum=0;
         // Planar formula from H.265 spec using p[] as reference storage
         sum =  ( ( (N-1 - x) * p[0][y+1] ) +    // left ref     hor[x][y] 
                ( (x+1)     * p[N-1][y+1] ) +  // right ref
@@ -68,13 +70,33 @@ else
                ( (y+1)     * p[x+1][N-1] ) +  // bottom ref
                N)  ;                             
 
-        Predict_planar = sum / (2 * N);
+        Predict_planar = sum;// / (2 * N);
     end
+     */
+
+     always_ff @(posedge clk)begin
+     if(rst)begin
+     sum <=0;
+     Predict_planar <=0;
+     end
+      
+        else begin
+                 // Planar formula from H.265 spec using p[] as reference storage
+             sum <=  ( ( (N-1 - x) * p[0][y+1] ) +    // left ref     hor[x][y] 
+                    ( (x+1)     * p[N-1][y+1] ) +  // right ref
+                    ( (N-1 - y) * p[x+1][0] ) +    // top ref      ver[x][y]
+                    ( (y+1)     * p[x+1][N-1] ) +  // bottom ref
+                    N)  ;                             
+     
+              Predict_planar <= sum >> 6 ;// Sum/ (2 * N);
+         end    
+      end
+
 
     // Store prediction results in predict_sum array
     always_ff @(posedge clk) begin
         if (!rst) begin
-            predict_sum[x][y] <= Predict_planar;
+           predict_sum[x][y] <= Predict_planar;
         end
     end
     
